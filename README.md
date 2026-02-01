@@ -139,6 +139,17 @@ Pump starts when water level < 10 cm
 Pump stops when water level > 50 cm
 Emergency stop on vibration detection or overcurrent
 
+## 🔧 Challenges & Debugging
+**Problem:** Pump not triggering despite correct code  
+**Root Cause:** L298N logic ground not common with ESP32 ground  
+**Fix:** Added common ground wire between boards  
+**Lesson:** Always verify reference voltage levels in motor driver circuits
+
+**Problem:** Ultrasonic sensor giving erratic readings (-1 values)  
+**Root Cause:** Power supply ripple affecting sensor  
+**Fix:** Added 100µF capacitor across VCC-GND of HC-SR04  
+**Lesson:** Decoupling capacitors critical for sensor stability
+
 🛡️ Safety Features
 
 Overcurrent Protection: Automatically stops pump if current exceeds 5A
@@ -170,6 +181,7 @@ Flow sensor not registering
 Confirm water is actually flowing
 Check interrupt pin connection
 Verify sensor orientation (arrow shows flow direction)
+
 
 🤝 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
