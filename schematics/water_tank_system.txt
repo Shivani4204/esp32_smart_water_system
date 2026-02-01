@@ -1,0 +1,96 @@
+                                    +-------------------+
+                                    |   ESP32 DevKit    |
+                                    |                   |
+     +------------------------------+ GPIO 5 (TRIG)     |
+     |                              | GPIO 18 (ECHO)    |
+     |                              | GPIO 19 (FLOW)    |
+     |                              | GPIO 21 (VIBRATION)|
+     |                              | GPIO 25 (ENA)     |
+     |                              | GPIO 26 (IN1)     |
+     |                              | GPIO 27 (IN2)     |
+     |                              | GPIO 34 (PRESSURE)|
+     |                              | GPIO 35 (CURRENT) |
+     |                              | 3.3V / 5V         |
+     |                              | GND               |
+     |                              +---------+---------+
+     |                                        |
+     |  +-------------------+                |
+     +--+ HC-SR04           |                |
+        | (Water Level)     |                |
+        | ECHO --> GPIO 18  |                |
+        | TRIG <-- GPIO 5   |                |
+        | VCC               |                |
+        | GND               |                |
+        +-------------------+                |
+                                             |
+     +-------------------+                   |
+     | YF-S201 Flow      |                   |
+     | Sensor            |                   |
+     | Signal --> GPIO 19|                   |
+     | VCC               |                   |
+     | GND               |                   |
+     +-------------------+                   |
+                                             |
+     +-------------------+                   |
+     | SW-420 Vibration  |                   |
+     | Sensor            |                   |
+     | Signal --> GPIO 21|                   |
+     | VCC               |                   |
+     | GND               |                   |
+     +-------------------+                   |
+                                             |
+     +-------------------+                   |
+     | BMP180/MPX5700    |                   |
+     | Pressure Sensor   |                   |
+     | Analog --> GPIO 34|                   |
+     | VCC               |                   |
+     | GND               |                   |
+     +-------------------+                   |
+                                             |
+     +-------------------+                   |
+     | ACS712 Current    |                   |
+     | Sensor            |                   |
+     | Analog --> GPIO 35|                   |
+     | VCC               |                   |
+     | GND               |                   |
+     +-------------------+                   |
+                                             |
+                                           +-------------------+
+                                           |   L298N Driver    |
+                                           |                   |
+                                           | IN1 <-- GPIO 26   |
+                                           | IN2 <-- GPIO 27   |
+                                           | ENA <-- GPIO 25   |
+                                           | OUT1 ----+        |
+                                           | OUT2 ----+        |
+                                           | +12V             |
+                                           | GND               |
+                                           +---------+---------+
+                                                     |
+                                           +---------+---------+
+                                           |   12V DC Pump     |
+                                           |   (Water Pump)    |
+                                           |                   |
+                                           | + <--- OUT1/OUT2  |
+                                           | - <--- GND        |
+                                           +-------------------+
+
+     +-------------------------------------------------------+
+     |                    POWER SECTION                      |
+     |  ESP32: USB/5V input                                  |
+     |  L298N + Pump: 12V @ 2A external adapter              |
+     |  Common ground between ESP32 and L298N (CRITICAL!)    |
+     +-------------------------------------------------------+
+
+
+| Component        | ESP32 GPIO | Function                |
+| ---------------- | ---------- | ----------------------- |
+| HC-SR04 Trig     | 5          | Ultrasonic trigger      |
+| HC-SR04 Echo     | 18         | Ultrasonic echo         |
+| YF-S201 Flow     | 19         | Pulse input (flow rate) |
+| SW-420 Vibration | 21         | Digital input (safety)  |
+| L298N IN1        | 26         | Motor direction         |
+| L298N IN2        | 27         | Motor direction         |
+| L298N ENA        | 25         | Motor PWM speed         |
+| Pressure Sensor  | 34         | Analog (water pressure) |
+| ACS712 Current   | 35         | Analog (pump current)   |
