@@ -1,10 +1,14 @@
-## 📸 Hardware Prototype (Real System Photos)
+## 📸 Hardware Prototype (Real Built System)
 <p align="center">
-  <img src="docs/hardware/setup1.jpg" width="30%" alt="Full System Setup" />
-  <img src="docs/hardware/wiring.jpg" width="30%" alt="Wiring Close-up" /> 
-  <img src="docs/hardware/serial_monitor.jpg" width="30%" alt="Serial Output" />
+  <img src="docs/hardware/whole%20project.jpeg" width="32%" alt="Complete System Setup" />
+  <img src="docs/hardware/L298N%20.jpeg" width="32%" alt="L298N Motor Driver Circuit" /> 
+  <img src="docs/hardware/ultrasonic%20sensor.jpeg" width="32%" alt="HC-SR04 Ultrasonic Sensor" />
 </p>
-<p align="center"><i>Left: Full setup | Middle: Wiring detail | Right: Live sensor data</i></p>
+<p align="center">
+  <b>Left:</b> Full system assembly (ESP32 + pump + sensors) | <b>Middle:</b> L298N motor driver handling 12V pump control | <b>Right:</b> HC-SR04 water level sensing module
+</p>
+
+<i><b>Note:</b> This is a solo-built hardware project (no team) — from circuit design to firmware deployment.</i>
 
 ---
 ESP32 Smart Water Management System
