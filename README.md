@@ -1,3 +1,12 @@
+## 📸 Hardware Prototype (Real System Photos)
+<p align="center">
+  <img src="docs/hardware/setup1.jpg" width="30%" alt="Full System Setup" />
+  <img src="docs/hardware/wiring.jpg" width="30%" alt="Wiring Close-up" /> 
+  <img src="docs/hardware/serial_monitor.jpg" width="30%" alt="Serial Output" />
+</p>
+<p align="center"><i>Left: Full setup | Middle: Wiring detail | Right: Live sensor data</i></p>
+
+---
 ESP32 Smart Water Management System
 
 An intelligent water management system built with ESP32 microcontroller that monitors water levels, flow rates, pressure, and power consumption while automatically controlling a water pump with safety features.
